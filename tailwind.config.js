@@ -1,7 +1,10 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+import { defineConfig } from 'tailwindcss';
+import daisyui from 'daisyui';
+import { themes } from 'daisyui/src/theming/themes';
+
+export default defineConfig({
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  plugins: [require('daisyui')],
+  plugins: [daisyui],
   theme: {
     extend: {},
   },
@@ -9,15 +12,15 @@ export default {
     themes: [
       {
         Spiker: {
-          ...require('daisyui/src/theming/themes')['dim'],
+          ...themes['dim'],
           primary: '#6ba672',
         },
         Ghostiny: {
-          ...require('daisyui/src/theming/themes')['emerald'],
+          ...themes['emerald'],
         },
       },
     ],
     darkTheme: 'Spiker',
     logs: false,
   },
-};
+});
